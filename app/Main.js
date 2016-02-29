@@ -58,13 +58,13 @@ export default class Main extends Component{
   goToAnm1(){
     this.props.navigator.push({
       component: Anm1,
-      title: 'FlipCard'
+      title: 'Flip Card'
     });
   }
   goToAnm2(){
     this.props.navigator.push({
       component: Anm2,
-      title: 'Anm2'
+      title: 'LayoutAnimation'
     });
   }
   goToAnm3(){
@@ -93,13 +93,13 @@ export default class Main extends Component{
           style={this.makeBackground(0)}
           onPress={this.goToAnm1}
           underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}>Flip CArd </Text>
+          <Text style={styles.buttonText}>Flip Card </Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={this.makeBackground(1)}
           onPress={this.goToAnm2}
           underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}>Jitter </Text>
+          <Text style={styles.buttonText}>Layout Animation </Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={this.makeBackground(2)}
