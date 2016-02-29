@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Anm5 extends Component{
+export default class Anm7 extends Component{
 
   render(){
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-          Anm5
+          Anm7
         </Text>
       </View>
     )
