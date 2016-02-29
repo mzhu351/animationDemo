@@ -3,26 +3,16 @@ import Anm2 from './Components/Anm2';
 import Anm3 from './Components/Anm3';
 import Anm4 from './Components/Anm4';
 import Anm5 from './Components/Anm5';
+import Separator from './Helpers/Separator';
 
 import React, {
   Text,
   View,
   StyleSheet,
+  ScrollView,
   Component,
   TouchableHighlight
 } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 65
-  },
-  buttonText: {
-    fontSize: 24,
-    color: '#333',
-    alignSelf: 'center'
-  }
-});
 
 export default class Main extends Component{
 
@@ -35,24 +25,16 @@ export default class Main extends Component{
     this.goToAnm4 = this.goToAnm4.bind(this);
     this.goToAnm5 = this.goToAnm5.bind(this);
   }
-  makeBackground(btn) {
+  makeBackground() {
     var obj = {
       flexDirection: 'row',
       alignSelf: 'stretch',
       justifyContent:'center',
       flex: 1,
       borderWidth: 1,
-      borderColor: '#ddd'
+      borderColor: '#ddd',
+      backgroundColor: '#eee'
     }
-
-    if(btn === 0){
-      obj.backgroundColor = '#eee';
-    } else if (btn === 1){
-      obj.backgroundColor = '#eee'
-    } else {
-      obj.backgroundColor = '#eee';
-    }
-
     return obj;
   }
   goToAnm1(){
@@ -86,40 +68,54 @@ export default class Main extends Component{
     });
   }
 
-  render(){
+  getRowTitle(item) {
+    item = (item === 'flip_card' || item === 'layout_animation') ? item.replace('_', ' ') : item;
+    return item[0] ? item[0].toUpperCase() + item.slice(1) : item;
+  }
+
+  render() {
+    var topicArry = ['flip_card', 'layout_animation', 'anim3', 'anim4', 'anim5'];
+    var list = topicArry.map((item, index) => {
+      return (
+        <View key={index}>
+          <View style={styles.container}>
+
+              <TouchableHighlight
+                style={this.makeBackground()}
+                onPress={this.goToAnm1}
+                underlayColor='#88D4F5'>
+                <Text style={styles.rowTitle}>
+                  {this.getRowTitle(item)}
+                </Text>
+              </TouchableHighlight>
+          </View>
+          <Separator />
+        </View>
+      )
+    });
     return (
-      <View style={styles.container}>
-        <TouchableHighlight
-          style={this.makeBackground(0)}
-          onPress={this.goToAnm1}
-          underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}>Flip Card </Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={this.makeBackground(1)}
-          onPress={this.goToAnm2}
-          underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}>Layout Animation </Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={this.makeBackground(2)}
-          onPress={this.goToAnm3}
-          underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}> other </Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={this.makeBackground(1)}
-          onPress={this.goToAnm4}
-          underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}>other2 </Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={this.makeBackground(2)}
-          onPress={this.goToAnm4}
-          underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}> other3 </Text>
-        </TouchableHighlight>
-      </View>
+      <ScrollView style={styles.container}>
+        {list}
+      </ScrollView>
     )
   }
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 65
+  },
+  buttonText: {
+    fontSize: 24,
+    color: '#333',
+    alignSelf: 'center'
+  },
+  rowContainer: {
+    padding: 10
+  },
+  rowTitle: {
+    color: '#48BBEC',
+    fontSize: 16
+  }
+});
