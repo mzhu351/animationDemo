@@ -58,7 +58,7 @@ export default class Main extends Component{
   goToAnm1(){
     this.props.navigator.push({
       component: Anm1,
-      title: 'Anm1'
+      title: 'FlipCard'
     });
   }
   goToAnm2(){
@@ -93,7 +93,7 @@ export default class Main extends Component{
           style={this.makeBackground(0)}
           onPress={this.goToAnm1}
           underlayColor='#88D4F5'>
-          <Text style={styles.buttonText}>Card flip </Text>
+          <Text style={styles.buttonText}>Flip CArd </Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={this.makeBackground(1)}
