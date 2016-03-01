@@ -18,21 +18,12 @@ import React, {
   TouchableHighlight
 } from 'react-native';
 
+import _ from 'lodash';
+
 export default class Main extends Component{
 
   constructor(props) {
     super(props);
-
-    this.goToAnm1 = this.goToAnm1.bind(this);
-    this.goToAnm2 = this.goToAnm2.bind(this);
-    this.goToAnm3 = this.goToAnm3.bind(this);
-    this.goToAnm4 = this.goToAnm4.bind(this);
-    this.goToAnm5 = this.goToAnm5.bind(this);
-    this.goToAnm6 = this.goToAnm6.bind(this);
-    this.goToAnm7 = this.goToAnm7.bind(this);
-    this.goToAnm8 = this.goToAnm8.bind(this);
-    this.goToAnm9 = this.goToAnm9.bind(this);
-    this.goToAnm10 = this.goToAnm10.bind(this);
   }
   makeBackground() {
     var obj = {
@@ -48,88 +39,58 @@ export default class Main extends Component{
     }
     return obj;
   }
-  goToAnm1(){
-    this.props.navigator.push({
-      component: Anm1,
-      title: 'Flip Card'
-    });
-  }
-  goToAnm2(){
-    this.props.navigator.push({
-      component: Anm2,
-      title: 'LayoutAnimation'
-    });
-  }
-  goToAnm3(){
-    this.props.navigator.push({
-      component: Anm3,
-      title: 'Anm3'
-    });
-  }
-  goToAnm4(){
-    this.props.navigator.push({
-      component: Anm4,
-      title: 'Anm4'
-    });
-  }
-  goToAnm5(){
-    this.props.navigator.push({
-      component: Anm5,
-      title: 'Anm5'
-    });
-  }
-  goToAnm6(){
-    this.props.navigator.push({
-      component: Anm6,
-      title: 'Anm6'
-    });
-  }
-  goToAnm7(){
-    this.props.navigator.push({
-      component: Anm7,
-      title: 'Anm7'
-    });
-  }
-  goToAnm8(){
-    this.props.navigator.push({
-      component: Anm8,
-      title: 'Anm8'
-    });
-  }
-  goToAnm9(){
-    this.props.navigator.push({
-      component: Anm9,
-      title: 'Anm9'
-    });
-  }
-  goToAnm10(){
-    this.props.navigator.push({
-      component: Anm10,
-      title: 'Anm10'
-    });
-  }
 
   getRowTitle(item) {
     item = (item === 'flip_card' || item === 'layout_animation') ? item.replace('_', ' ') : item;
     return item[0] ? item[0].toUpperCase() + item.slice(1) : item;
   }
 
-  goToPage(item) {
+  getComponentName(index) {
+    var idx = index+1;
+    console.log('@@@@@', ('Amn' + idx));
+    var str = '"'+'Amn' + idx + '"'
+    return str;
+  }
+
+  goPage(item) {
+    switch(item) {
+      case 'flip_card': var component = Anm1;
+        break;
+      case 'layout_animation': var component = Anm2;
+        break;
+      case 'drop': var component = Anm3;
+        break;
+      case 'basic': var component = Anm4;
+        break;
+      case 'draggable': var component = Anm5;
+        break;
+      case 'attention_seeker': var component = Anm6;
+        break;
+      case 'anm7': var component = Anm7;
+        break;
+      case 'anm8': var component = Anm8;
+        break;
+      case 'anm9': var component = Anm9;
+        break;
+      case 'anm10': var component = Anm10;
+        break;
+    }
     this.props.navigator.push({
-      component: getRowTitle(item).quote(),
-      title: getRowTitle(item)
+      component: component,
+      title: item
     });
   }
 
   render() {
-    var topicArry = ['flip_card', 'layout_animation', 'anm3', 'anm4', 'anm5', 'anm6', 'anm7', 'anm8', 'anm9', 'anm10'];
+    var topicArry = ['flip_card', 'layout_animation', 'drop', 'basic', 'draggable', 'attention_seeker', 'anm7', 'anm8', 'anm9', 'anm10'];
+
     var list = topicArry.map((item, index) => {
       return (
         <View key={index}>
           <View style={styles.rowContainer}>
               <TouchableHighlight
                 style={this.makeBackground()}
-                onPress={this.goToAnm4}
+                onPress={() => this.goPage(item)}
                 underlayColor='#88D4F5'>
                 <Text style={styles.buttonText}>
                   {this.getRowTitle(item)}
