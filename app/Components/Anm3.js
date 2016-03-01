@@ -30,7 +30,7 @@ export default class Anm3 extends Component{
     const animationConfig = {
       duration: 600, // milliseconds
       delay: 500, // milliseconds
-      easing: Easing.in(Easing.ease),
+      easing: Easing.inOut(Easing.ease),
     }
     const value = this._animatedValue;
     const dropAnimation = Animated.timing(value, {

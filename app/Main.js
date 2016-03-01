@@ -62,7 +62,7 @@ export default class Main extends Component{
         break;
       case 'basic': var component = Anm4;
         break;
-      case 'draggable': var component = Anm5;
+      case 'animatable': var component = Anm5;
         break;
       case 'attention_seeker': var component = Anm6;
         break;
@@ -82,7 +82,7 @@ export default class Main extends Component{
   }
 
   render() {
-    var topicArry = ['flip_card', 'layout_animation', 'drop', 'basic', 'draggable', 'attention_seeker', 'modals', 'swipe', 'easing', 'animated_icons'];
+    var topicArry = ['flip_card', 'layout_animation', 'drop', 'basic', 'animatable', 'attention_seeker', 'modals', 'swipe', 'spring', 'animated_icons'];
 
     var list = topicArry.map((item, index) => {
       return (
