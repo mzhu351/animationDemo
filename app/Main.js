@@ -129,7 +129,7 @@ export default class Main extends Component{
           <View style={styles.rowContainer}>
               <TouchableHighlight
                 style={this.makeBackground()}
-                onPress={this.goToAnm3}
+                onPress={this.goToAnm4}
                 underlayColor='#88D4F5'>
                 <Text style={styles.buttonText}>
                   {this.getRowTitle(item)}
