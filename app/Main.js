@@ -3,7 +3,11 @@ import Anm2 from './Components/Anm2';
 import Anm3 from './Components/Anm3';
 import Anm4 from './Components/Anm4';
 import Anm5 from './Components/Anm5';
-import Separator from './Helpers/Separator';
+import Anm6 from './Components/Anm6';
+import Anm7 from './Components/Anm7';
+import Anm8 from './Components/Anm8';
+import Anm9 from './Components/Anm9';
+import Anm10 from './Components/Anm10';
 
 import React, {
   Text,
@@ -24,6 +28,11 @@ export default class Main extends Component{
     this.goToAnm3 = this.goToAnm3.bind(this);
     this.goToAnm4 = this.goToAnm4.bind(this);
     this.goToAnm5 = this.goToAnm5.bind(this);
+    this.goToAnm6 = this.goToAnm6.bind(this);
+    this.goToAnm7 = this.goToAnm7.bind(this);
+    this.goToAnm8 = this.goToAnm8.bind(this);
+    this.goToAnm9 = this.goToAnm9.bind(this);
+    this.goToAnm10 = this.goToAnm10.bind(this);
   }
   makeBackground() {
     var obj = {
@@ -69,30 +78,58 @@ export default class Main extends Component{
       title: 'Anm5'
     });
   }
+  goToAnm6(){
+    this.props.navigator.push({
+      component: Anm6,
+      title: 'Anm6'
+    });
+  }
+  goToAnm7(){
+    this.props.navigator.push({
+      component: Anm7,
+      title: 'Anm7'
+    });
+  }
+  goToAnm8(){
+    this.props.navigator.push({
+      component: Anm8,
+      title: 'Anm8'
+    });
+  }
+  goToAnm9(){
+    this.props.navigator.push({
+      component: Anm9,
+      title: 'Anm9'
+    });
+  }
+  goToAnm10(){
+    this.props.navigator.push({
+      component: Anm10,
+      title: 'Anm10'
+    });
+  }
 
   getRowTitle(item) {
     item = (item === 'flip_card' || item === 'layout_animation') ? item.replace('_', ' ') : item;
     return item[0] ? item[0].toUpperCase() + item.slice(1) : item;
   }
-  getComponentName(item) {
-    return getRowTitle(item).quote();
-  }
+
   goToPage(item) {
     this.props.navigator.push({
-      component: getComponentName(item),
+      component: getRowTitle(item).quote(),
       title: getRowTitle(item)
     });
   }
 
   render() {
-    var topicArry = ['flip_card', 'layout_animation', 'anim3', 'anim4', 'anim5', 'anim6', 'anim7', 'anim8', 'anim9', 'anim10', 'anim12'];
+    var topicArry = ['flip_card', 'layout_animation', 'anm3', 'anm4', 'anm5', 'anm6', 'anm7', 'anm8', 'anm9', 'anm10'];
     var list = topicArry.map((item, index) => {
       return (
         <View key={index}>
           <View style={styles.rowContainer}>
               <TouchableHighlight
                 style={this.makeBackground()}
-                onPress={this.goToAnm5}
+                onPress={this.goToAnm3}
                 underlayColor='#88D4F5'>
                 <Text style={styles.buttonText}>
                   {this.getRowTitle(item)}
