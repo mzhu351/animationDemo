@@ -3,6 +3,7 @@ import React, {
   Text,
   View,
   StyleSheet,
+  Easing,
   Animated
 } from 'react-native';
 
@@ -26,9 +27,15 @@ export default class Anm3 extends Component{
   }
 
   componentDidMount() {
-    Animated.timing(this._animatedValue, {
-        toValue: 300,
-        duration: 500
+    const animationConfig = {
+      duration: 600, // milliseconds
+      delay: 500, // milliseconds
+      easing: Easing.in(Easing.ease),
+    }
+    const value = this._animatedValue;
+    const dropAnimation = Animated.timing(value, {
+      ...animationConfig,
+      toValue: 400
     }).start();
   }
 
