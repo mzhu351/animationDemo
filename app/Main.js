@@ -8,6 +8,8 @@ import Anm7 from './Components/Anm7';
 import Anm8 from './Components/Anm8';
 import Anm9 from './Components/Anm9';
 import Anm10 from './Components/Anm10';
+import Anm11 from './Components/Anm11';
+import Anm12 from './Components/Anm12';
 
 import React, {
   Text,
@@ -45,20 +47,13 @@ export default class Main extends Component{
     return item[0] ? item[0].toUpperCase() + item.slice(1) : item;
   }
 
-  getComponentName(index) {
-    var idx = index+1;
-    console.log('@@@@@', ('Amn' + idx));
-    var str = '"'+'Amn' + idx + '"'
-    return str;
-  }
-
   goPage(item) {
     switch(item) {
       case 'flip_card': var component = Anm1;
         break;
       case 'layout_animation': var component = Anm2;
         break;
-      case 'drop': var component = Anm3;
+      case 'move': var component = Anm3;
         break;
       case 'basic': var component = Anm4;
         break;
@@ -68,7 +63,7 @@ export default class Main extends Component{
         break;
       case 'bouncing': var component = Anm7;
         break;
-      case 'swipe': var component = Anm8;
+      case 'infinite_swipe': var component = Anm8;
         break;
       case 'sliding': var component = Anm9;
         break;
@@ -93,8 +88,8 @@ export default class Main extends Component{
   }
 
   render() {
-    var topicArry = ['flip_card', 'layout_animation', 'drop', 'basic',
-                  'animatable', 'attention_seeker', 'bouncing', 'swipe',
+    var topicArry = ['flip_card', 'layout_animation', 'move', 'basic',
+                  'animatable', 'attention_seeker', 'bouncing', 'infinite_swipe',
                   'sliding', 'draggable', 'flipper2', 'modal', 'zooming', 'fadding'];
 
     var list = topicArry.map((item, index) => {

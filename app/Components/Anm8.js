@@ -5,27 +5,51 @@ import React, {
   StyleSheet
 } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 65,
-    flex: 1
-  },
-  text: {
-    fontSize: 25,
-    color: '#333',
-    alignSelf: 'center'
-  }
-});
+import Swiper from 'react-native-swiper';
 
 export default class Anm8 extends Component{
 
   render(){
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>
-          Anm8
-        </Text>
-      </View>
+      <Swiper style={styles.wrapper} showButtons={true}>
+        <View style={styles.slide1}>
+          <Text style={styles.text}>Just Swipe</Text>
+        </View>
+        <View style={styles.slide2}>
+          <Text style={styles.text}>And Continue</Text>
+        </View>
+        <View style={styles.slide3}>
+          <Text style={styles.text}>All done!</Text>
+        </View>
+      </Swiper>
     )
   }
 };
+
+const styles = StyleSheet.create({
+  wrapper: {
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  }
+});

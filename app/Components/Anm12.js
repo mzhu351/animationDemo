@@ -20,7 +20,7 @@ var COLORS = [
    '#ff6821', // orange
 ];
 
-export default class Anm6 extends Component{
+export default class Anm12 extends Component{
   constructor() {
     super();
 
@@ -34,30 +34,31 @@ export default class Anm6 extends Component{
 
     return (
       <View style={styles.container}>
-          {/*Shake*/}
+          {/*flipInX*/}
           <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="shake" style={[{ backgroundColor: COLORS[0] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Shake</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-          {/*Flash*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flash" style={[{ backgroundColor: COLORS[1] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Flash</Animatable.Text>
+            <Animatable.View animation="flipInX" style={[{ backgroundColor: COLORS[0] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>FlipInX</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
-          {/*Bounce*/}
+          {/*flipInY*/}
           <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="bounce" style={[{ backgroundColor: COLORS[2] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Bounce</Animatable.Text>
+            <Animatable.View animation="flipInY" style={[{ backgroundColor: COLORS[1] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>FlipInY</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
-          {/*Jello*/}
+          {/*flipOutX*/}
           <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="jello" style={[{ backgroundColor: COLORS[3] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Jello</Animatable.Text>
+            <Animatable.View animation="flipOutX" style={[{ backgroundColor: COLORS[2] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>FlipOutX</Animatable.Text>
+            </Animatable.View>
+          </TouchableWithoutFeedback>
+
+          {/*flipOutY*/}
+          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
+            <Animatable.View animation="flipOutY" style={[{ backgroundColor: COLORS[3] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>flipOutY</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
