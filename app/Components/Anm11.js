@@ -34,61 +34,7 @@ export default class Anm11 extends Component{
 
     return (
       <View style={styles.container}>
-          {/*flipInX*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipInX" style={[{ backgroundColor: COLORS[0] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>FlipInX</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-
-          {/*flipInY*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipInY" style={[{ backgroundColor: COLORS[1] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>FlipInY</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-
-          {/*flipOutX*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipOutX" style={[{ backgroundColor: COLORS[2] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>FlipOutX</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-
-          {/*flipOutY*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipOutY" style={[{ backgroundColor: COLORS[3] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>flipOutY</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-
-          {/*Pulse*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="pulse" style={[{ backgroundColor: COLORS[4] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Pulse</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-
-          {/*Tada*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="tada" style={[{ backgroundColor: COLORS[5] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Tada</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-
-          {/*Wobble*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="wobble" style={[{ backgroundColor: COLORS[6] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Wobble</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
-
-          {/*Swing*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="swing" style={[{ backgroundColor: COLORS[7] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Swing</Animatable.Text>
-            </Animatable.View>
-          </TouchableWithoutFeedback>
+          <Text style={styles.text}>To Do</Text>
       </View>
     )
   }
@@ -96,15 +42,15 @@ export default class Anm11 extends Component{
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 65,
     paddingRight: 30,
     paddingLeft: 30,
-    flex: 1
+    flex: 1,
+    justifyContent:'center',
   },
   text: {
     fontSize: 25,
     color: '#333',
-    alignSelf: 'center'
+    textAlign: 'center'
   },
   animatableName: {
     color: 'white',

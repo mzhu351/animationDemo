@@ -25,7 +25,7 @@ export default class Anm1 extends Component{
 
         <View style={styles.stage}>
 
-          <Text style={styles.name}>Minimal</Text>
+          <Text style={styles.name}>Vertical</Text>
           <FlipCard style={styles.card}>
             {/* Face Side */}
             <View style={styles.face}>
@@ -37,7 +37,7 @@ export default class Anm1 extends Component{
             </View>
           </FlipCard>
 
-          <Text style={styles.name}>Customized</Text>
+          <Text style={styles.name}>Horizonatal</Text>
           <FlipCard
             flip={this.state.flip}
             friction={6}

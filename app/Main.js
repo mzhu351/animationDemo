@@ -67,18 +67,12 @@ export default class Main extends Component{
         break;
       case 'sliding': var component = Anm9;
         break;
-      case 'flipper2': var component = Anm10;
-        break;
-      case 'draggable': var component = Anm8;
-        break;
-      case 'flipper2': var component = Anm9;
-        break;
       case 'modal': var component = Anm10;
         break;
-      case 'zooming': var component = Anm11;
+      case 'draggable': var component = Anm11;
         break;
-      case 'fading': var component = Anm12;
-          break;
+      case 'flipper2': var component = Anm12;
+        break;
 
     }
     this.props.navigator.push({
@@ -90,7 +84,7 @@ export default class Main extends Component{
   render() {
     var topicArry = ['flip_card', 'layout_animation', 'move', 'basic',
                   'animatable', 'attention_seeker', 'bouncing', 'infinite_swipe',
-                  'sliding', 'draggable', 'flipper2', 'modal', 'zooming', 'fadding'];
+                  'sliding', 'modal', 'draggable', 'flipper2'];
 
     var list = topicArry.map((item, index) => {
       return (
