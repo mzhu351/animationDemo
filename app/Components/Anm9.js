@@ -18,10 +18,18 @@ export default class Anm9 extends Component{
   }
   toggleAnm() {
     console.log('called');
-    Animated.timing(
-      this.state.fadeAnim,
-      {toValue: 1 , duration: 1500},
-    ).start();
+    if (this.state.show) {
+      Animated.timing(
+        this.state.fadeAnim,
+        {toValue: 1 , duration: 1500},
+      ).start();
+    } else {
+      Animated.timing(
+        this.state.fadeAnim,
+        {toValue: 0 , duration: 1500},
+      ).start();
+    }
+
     this.setState((state) => (
       {show: !state.show}
     ));
@@ -37,8 +45,7 @@ export default class Anm9 extends Component{
         </Button>
 
         <Animated.View style={[styles.box,{opacity: this.state.fadeAnim}]}>
-          <Text>Fadding {this.state.show ?
-                  'Out' : 'In'} </Text>
+          <Text>Fadding {this.state.show ? 'Out' : 'In'} </Text>
         </Animated.View>
 
       </View>
