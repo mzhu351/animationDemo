@@ -11,17 +11,23 @@ export default class Anm9 extends Component{
     super(props);
     this.state = {
       progress: 0,
-      indeterminiate: true
+      indeterminate: true
     }
+    this.animate = this.animate.bind(this);
   }
 
   componentDidMount() {
     this.animate();
   }
 
+  componentWillUnmount() {
+    this.stopAnm();
+  }
+
   animate() {
     var progress = 0;
     this.setState({ progress });
+
     setTimeout(() => {
       this.setState({ indeterminate: false });
       setInterval(() => {
@@ -32,7 +38,16 @@ export default class Anm9 extends Component{
         this.setState({ progress });
       }, 500);
     }, 1500);
+  }
 
+  stopAnm() {
+    clearTimeout(()=> {
+      this.setState({ indeterminate: false });
+      setInterval && clearInterval(() => {
+        progress = 0;
+        this.setState({ progress });
+      });
+    });
   }
 
   render() {
@@ -40,24 +55,24 @@ export default class Anm9 extends Component{
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Progress Example</Text>
+
         <Progress.Bar
           style={styles.progress}
+          width={300}
           progress={this.state.progress}
           indeterminate={this.state.indeterminate}
         />
         <View style={styles.circles}>
-          <Progress.Circle
-            style={styles.progress}
-            progress={this.state.progress}
-            indeterminate={this.state.indeterminate}
-          />
           <Progress.Pie
             style={styles.progress}
             progress={this.state.progress}
+            size={120}
             indeterminate={this.state.indeterminate}
           />
           <Progress.Circle
             style={styles.progress}
+            size={120}
+            borderWidth={2}
             progress={this.state.progress}
             indeterminate={this.state.indeterminate}
             direction="counter-clockwise"
@@ -66,9 +81,11 @@ export default class Anm9 extends Component{
         <View style={styles.circles}>
           <Progress.CircleSnail
             style={styles.progress}
+            size={100}
           />
         <Progress.CircleSnail
             style={styles.progress}
+            size={100}
             color={[
               '#F44336',
               '#2196F3',
