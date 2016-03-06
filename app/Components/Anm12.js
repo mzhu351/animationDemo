@@ -23,11 +23,6 @@ var COLORS = [
 export default class Anm12 extends Component{
   constructor() {
     super();
-
-    this.state = {
-      duration: 1200,
-      toggledOn: false
-    };
   }
 
   render(){
@@ -35,58 +30,58 @@ export default class Anm12 extends Component{
     return (
       <View style={styles.container}>
           {/*flipInX*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipInX" style={[{ backgroundColor: COLORS[0] }, styles.animatable]}>
+          <TouchableWithoutFeedback onPress={() => this.refs.view1.flipInX(800)}>
+            <Animatable.View ref="view1" style={[{ backgroundColor: COLORS[0] }, styles.animatable]}>
               <Animatable.Text style={styles.animatableName}>FlipInX</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
           {/*flipInY*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipInY" style={[{ backgroundColor: COLORS[1] }, styles.animatable]}>
+          <TouchableWithoutFeedback onPress={() => this.refs.view2.flipInY(800)}>
+            <Animatable.View ref="view2" style={[{ backgroundColor: COLORS[1] }, styles.animatable]}>
               <Animatable.Text style={styles.animatableName}>FlipInY</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
           {/*flipOutX*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipOutX" style={[{ backgroundColor: COLORS[2] }, styles.animatable]}>
+          <TouchableWithoutFeedback  onPress={() => this.refs.view3.flipOutX(800)}>
+            <Animatable.View ref="view3" style={[{ backgroundColor: COLORS[2] }, styles.animatable]}>
               <Animatable.Text style={styles.animatableName}>FlipOutX</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
           {/*flipOutY*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="flipOutY" style={[{ backgroundColor: COLORS[3] }, styles.animatable]}>
+          <TouchableWithoutFeedback  onPress={() => this.refs.view4.flipOutY(800)}>
+            <Animatable.View ref="view4" style={[{ backgroundColor: COLORS[3] }, styles.animatable]}>
               <Animatable.Text style={styles.animatableName}>flipOutY</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
-          {/*Pulse*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="pulse" style={[{ backgroundColor: COLORS[4] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Pulse</Animatable.Text>
+          {/*lightSpeedIn*/}
+          <TouchableWithoutFeedback  onPress={() => this.refs.view5.lightSpeedIn(800)}>
+            <Animatable.View ref="view5" style={[{ backgroundColor: COLORS[4] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>lightSpeedIn</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
-          {/*Tada*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="tada" style={[{ backgroundColor: COLORS[5] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Tada</Animatable.Text>
+          {/*slideInDown*/}
+          <TouchableWithoutFeedback  onPress={() => this.refs.view6.slideInDown(800)}>
+            <Animatable.View ref="view6" style={[{ backgroundColor: COLORS[5] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>slideInDown</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
-          {/*Wobble*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="wobble" style={[{ backgroundColor: COLORS[6] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Wobble</Animatable.Text>
+          {/*ZoomIn*/}
+          <TouchableWithoutFeedback onPress={() => this.refs.view7.zoomIn(800)}>
+            <Animatable.View ref="view7" style={[{ backgroundColor: COLORS[6] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>Zoom In</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
 
-          {/*Swing*/}
-          <TouchableWithoutFeedback  onPress={() => this.setState({toggledOn: !this.state.toggledOn})}>
-            <Animatable.View animation="swing" style={[{ backgroundColor: COLORS[7] }, styles.animatable]}>
-              <Animatable.Text style={styles.animatableName}>Swing</Animatable.Text>
+          {/*zoomOut*/}
+          <TouchableWithoutFeedback onPress={() => this.refs.view8.zoomOut(800)}>
+            <Animatable.View ref="view8" style={[{ backgroundColor: COLORS[7] }, styles.animatable]}>
+              <Animatable.Text style={styles.animatableName}>Zoom Out</Animatable.Text>
             </Animatable.View>
           </TouchableWithoutFeedback>
       </View>

@@ -1,57 +1,78 @@
 import React, {
   Component,
-  StyleSheet,
   Text,
-  View
-} from 'react-native';
-
-import Animatable from 'react-native-animatable';
+  View,
+  StyleSheet,
+  Animated
+  } from 'react-native';
+import Button from 'react-native-button';
 
 export default class Anm5 extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true,
+      fadeAnim: new Animated.Value(0),
+    };
+    this.toggleAnm = this.toggleAnm.bind(this);
+  }
+  toggleAnm() {
+    console.log('called');
+    if (this.state.show) {
+      Animated.timing(
+        this.state.fadeAnim,
+        {toValue: 1 , duration: 1500},
+      ).start();
+    } else {
+      Animated.timing(
+        this.state.fadeAnim,
+        {toValue: 0 , duration: 1500},
+      ).start();
+    }
 
-  render(){
+    this.setState((state) => (
+      {show: !state.show}
+    ));
+  }
+
+  render() {
     return (
       <View style={styles.container}>
-        <View style={styles.row}>
-          <Animatable.Text animation="zoomInUp" style={styles.zoomText}>Fly in Text!</Animatable.Text>
-        </View>
-        <View style={styles.row}>
-          <Animatable.Text animation="slideInDown" iterationCount={5} direction="alternate" style={styles.floatText}>Yo-yo floating</Animatable.Text>
-        </View>
-        <View style={styles.row}>
-          <Animatable.Text animation="pulse" easing="ease-out" iterationCount="infinite" style={styles.heartText}>❤️</Animatable.Text>
-        </View>
+        <Button onPress={() => {this.toggleAnm();}}
+                style={styles.btn}>
+          Press {this.state.show ?
+                  'Show' : 'Hide'}
+        </Button>
+
+        <Animated.View style={[styles.box,{opacity: this.state.fadeAnim}]}>
+          <Text>Fadding {this.state.show ? 'Out' : 'In'} </Text>
+        </Animated.View>
+
       </View>
-    )
+    );
   }
 };
 
-
-
 const styles = StyleSheet.create({
   container: {
-    marginTop: 80,
-    flex: 1
-  },
-  text: {
-    fontSize: 25,
-    color: '#333',
-    alignItems: 'center'
-  },
-  heartText: {
-    textAlign: 'center',
-    fontSize: 60
-  },
-  floatText: {
-    fontSize: 36
-  },
-  zoomText: {
-    fontSize: 36
-  },
-  row: {
     flex: 1,
-    alignSelf: 'center',
-    marginTop: 20,
-    marginBottom: 20
+    paddingTop: 120,
+  },
+  btn: {
+    margin: 20,
+    backgroundColor: "#1fa0c8",
+    color: "white",
+    padding: 20
+  },
+  box: {
+    backgroundColor: 'deepskyblue',
+    borderWidth: 1,
+    borderColor: 'dodgerblue',
+    padding: 20,
+    height: 120,
+    margin: 20,
+    borderRadius: 10,
+    alignItems: 'center',
   }
+
 });

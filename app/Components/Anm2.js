@@ -12,7 +12,8 @@ export default class Anm2 extends Component{
     super();
     this.state = {
       viewStyle: {
-        height: 250
+        height: 250,
+        backgroundColor: '#d92b2b'
       }
     }
   }
@@ -21,7 +22,8 @@ export default class Anm2 extends Component{
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
     this.setState({
       viewStyle: {
-        height: this.state.viewStyle.height > 250 ? 250 : 450
+        height: this.state.viewStyle.height > 250 ? 250 : 450,
+        backgroundColor: this.state.viewStyle.backgroundColor === '#790000' ? '#d92b2b': '#790000'
       }
     })
   }
@@ -54,7 +56,6 @@ const styles = StyleSheet.create({
   view: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#809e2d',
     margin: 20
   },
   viewText: {

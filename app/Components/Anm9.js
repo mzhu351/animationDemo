@@ -2,52 +2,80 @@ import React, {
   Component,
   Text,
   View,
-  StyleSheet,
-  Animated
+  StyleSheet
   } from 'react-native';
-import Button from 'react-native-button';
+import Progress from "react-native-progress";
 
 export default class Anm9 extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      show: true,
-      fadeAnim: new Animated.Value(0),
-    };
-    this.toggleAnm = this.toggleAnm.bind(this);
-  }
-  toggleAnm() {
-    console.log('called');
-    if (this.state.show) {
-      Animated.timing(
-        this.state.fadeAnim,
-        {toValue: 1 , duration: 1500},
-      ).start();
-    } else {
-      Animated.timing(
-        this.state.fadeAnim,
-        {toValue: 0 , duration: 1500},
-      ).start();
+      progress: 0,
+      indeterminiate: true
     }
+  }
 
-    this.setState((state) => (
-      {show: !state.show}
-    ));
+  componentDidMount() {
+    this.animate();
+  }
+
+  animate() {
+    var progress = 0;
+    this.setState({ progress });
+    setTimeout(() => {
+      this.setState({ indeterminate: false });
+      setInterval(() => {
+        progress += Math.random()/5;
+        if(progress > 1) {
+          progress = 1;
+        }
+        this.setState({ progress });
+      }, 500);
+    }, 1500);
+
   }
 
   render() {
+
     return (
       <View style={styles.container}>
-        <Button onPress={() => {this.toggleAnm();}}
-                style={styles.btn}>
-          Press {this.state.show ?
-                  'Show' : 'Hide'}
-        </Button>
-
-        <Animated.View style={[styles.box,{opacity: this.state.fadeAnim}]}>
-          <Text>Fadding {this.state.show ? 'Out' : 'In'} </Text>
-        </Animated.View>
-
+        <Text style={styles.welcome}>Progress Example</Text>
+        <Progress.Bar
+          style={styles.progress}
+          progress={this.state.progress}
+          indeterminate={this.state.indeterminate}
+        />
+        <View style={styles.circles}>
+          <Progress.Circle
+            style={styles.progress}
+            progress={this.state.progress}
+            indeterminate={this.state.indeterminate}
+          />
+          <Progress.Pie
+            style={styles.progress}
+            progress={this.state.progress}
+            indeterminate={this.state.indeterminate}
+          />
+          <Progress.Circle
+            style={styles.progress}
+            progress={this.state.progress}
+            indeterminate={this.state.indeterminate}
+            direction="counter-clockwise"
+          />
+        </View>
+        <View style={styles.circles}>
+          <Progress.CircleSnail
+            style={styles.progress}
+          />
+        <Progress.CircleSnail
+            style={styles.progress}
+            color={[
+              '#F44336',
+              '#2196F3',
+              '#009688',
+            ]}
+          />
+        </View>
       </View>
     );
   }
@@ -56,22 +84,21 @@ export default class Anm9 extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 100,
-  },
-  btn: {
-    margin: 10,
-    backgroundColor: "#1fa0c8",
-    color: "white",
-    padding: 20
-  },
-  box: {
-    backgroundColor: 'deepskyblue',
-    borderWidth: 1,
-    borderColor: 'dodgerblue',
-    padding: 20,
-    margin: 20,
-    borderRadius: 10,
+    justifyContent: 'center',
     alignItems: 'center',
-  }
-
+    backgroundColor: '#fff',
+    paddingVertical: 20,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  circles: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  progress: {
+    margin: 10,
+  },
 });
